@@ -9,13 +9,13 @@ class CuentaTests {
 
 	@Test
 	void ElSaldoInicialDebeSerElDado() {
-		assertEquals(1000, cuenta.getSaldo());
+		assertEquals(1000, cuenta.consultarSaldo());
 	}
 
 	@Test
 	void ElSaldoDebeSerCero() {
 		Cuenta cuenta = new Cuenta(0);
-		assertEquals(0, cuenta.getSaldo());
+		assertEquals(0, cuenta.consultarSaldo());
 	}
 
 	@Test
@@ -29,19 +29,19 @@ class CuentaTests {
 	@Test
 	void DebeAgregarSaldoAlDepositar() {
 		cuenta.depositar(1000);
-		assertEquals(2000, cuenta.getSaldo());
+		assertEquals(2000, cuenta.consultarSaldo());
 
 		cuenta.depositar(550);
-		assertEquals(2550, cuenta.getSaldo());
+		assertEquals(2550, cuenta.consultarSaldo());
 	}
 
 	@Test
 	void DebeRestarSaldoAlExtraer() {
 		cuenta.extraer(550);
-		assertEquals(450, cuenta.getSaldo());
+		assertEquals(450, cuenta.consultarSaldo());
 
 		cuenta.extraer(300);
-		assertEquals(150, cuenta.getSaldo());
+		assertEquals(150, cuenta.consultarSaldo());
 	}
 
 	@Test

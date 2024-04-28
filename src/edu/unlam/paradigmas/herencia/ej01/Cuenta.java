@@ -10,7 +10,7 @@ public class Cuenta {
 		this.saldo = saldoInicial;
 	}
 
-	public double getSaldo() {
+	public double consultarSaldo() {
 		return this.saldo;
 	}
 
