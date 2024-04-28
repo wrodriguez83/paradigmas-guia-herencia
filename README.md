@@ -48,6 +48,7 @@ Se pide que utilicemos este concepto para asegurarnos de las siguientes restricc
 
 ### Parte 3: Abriendo el juego
 Es común transferir dinero entre cuentas bancarias. Para ello, debemos dotar a nuestro modelo con dicha funcionalidad. Cuando querramos transferir un monto, deberá verificarse que la operación puede realizarse, y deberá acreditarse directamente en la cuenta destino. El código para dicha operación se verá similar a este:
+
 ```java
 // main
 Cuenta cuentaOrigen = new Cuenta();
