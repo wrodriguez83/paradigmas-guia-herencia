@@ -1,8 +1,6 @@
 package edu.unlam.paradigmas.herencia.ej01;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.Date;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

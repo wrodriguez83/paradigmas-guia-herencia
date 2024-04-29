@@ -13,6 +13,7 @@ public class CuentaCorriente extends Cuenta {
 		this.descubierto = descubierto;
 	}
 
+	@Override
 	public double consultarSaldo() {
 		return super.consultarSaldo() + this.descubierto;
 	}

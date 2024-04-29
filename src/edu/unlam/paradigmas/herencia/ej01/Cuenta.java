@@ -1,15 +1,17 @@
 package edu.unlam.paradigmas.herencia.ej01;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.opentest4j.IncompleteExecutionException;
 
-public class Cuenta {
+public class Cuenta extends Producto {
 	private List<Transaccion> transacciones = new ArrayList<>();
 	private double saldo = 0;
 
 	public Cuenta(double saldoInicial) {
+		super();
 		if (saldoInicial < 0) {
 			throw new IllegalArgumentException("El saldo inicial no puede ser menor a cero.");
 		}
@@ -26,7 +28,7 @@ public class Cuenta {
 	}
 
 	public void extraer(double importe, String motivo) {
-		this.validarImporteAExtraer(importe);
+		this.validarImporte(importe);
 		this.agregarTransaccion(-importe, motivo);
 	}
 
@@ -42,7 +44,14 @@ public class Cuenta {
 	}
 
 	public List<Transaccion> getTransacciones() {
+		this.transacciones.sort(Comparator.comparing(Transaccion::getFecha));
 		return this.transacciones;
+	}
+
+	public void agregarTransacciones(List<Transaccion> transaccionesNuevas) {
+		double importe = transaccionesNuevas.stream().mapToDouble(t -> t.importe).sum();
+		this.saldo += importe;
+		this.transacciones.addAll(transaccionesNuevas);
 	}
 
 	private void agregarTransaccion(double importe, String motivo) {
@@ -50,13 +59,7 @@ public class Cuenta {
 		this.saldo += importe;
 	}
 
-	protected void validarImportePositivo(double importe) {
-		if (importe < 0) {
-			throw new IllegalArgumentException("El importe no puede ser menor a cero.");
-		}
-	}
-
-	protected void validarImporteAExtraer(double importe) {
+	protected void validarImporte(double importe) {
 		this.validarImportePositivo(importe);
 
 		if (this.consultarSaldo() < importe) {

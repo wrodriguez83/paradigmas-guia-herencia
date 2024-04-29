@@ -8,7 +8,7 @@ public class CuentaDeAhorros extends Cuenta {
 	}
 
 	public void reservarSaldo(double importe) {
-		this.validarImporteAExtraer(importe);
+		this.validarImporte(importe);
 		this.extraer(importe, "Reservar saldo");
 		this.saldoSecundario += importe;
 	}
