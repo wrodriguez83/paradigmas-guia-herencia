@@ -35,7 +35,7 @@ class CuentaCorrienteTests {
 
 	@Test
 	void DebePermitirExtraerSiNoSuperaElSaldoMasElDescubierto() {
-		cuenta.extraer(1400);
+		cuenta.extraer(1400, "Test");
 
 		assertEquals(100, cuenta.consultarSaldo());
 	}
@@ -43,7 +43,7 @@ class CuentaCorrienteTests {
 	@Test
 	void NoDebePermitirExtraerSiElSaldoMasElDescubiertoQuedaNegativo() {
 		IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-			cuenta.extraer(2000);
+			cuenta.extraer(2000, "Test");
 		});
 		assertEquals("El importe excede el saldo actual.", exception.getMessage());
 	}

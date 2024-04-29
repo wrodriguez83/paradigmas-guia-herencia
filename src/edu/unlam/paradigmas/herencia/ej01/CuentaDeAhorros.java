@@ -9,12 +9,12 @@ public class CuentaDeAhorros extends Cuenta {
 
 	public void reservarSaldo(double importe) {
 		this.validarImporteAExtraer(importe);
-		this.extraer(importe);
+		this.extraer(importe, "Reservar saldo");
 		this.saldoSecundario += importe;
 	}
 
 	public void consolidarSaldos() {
-		this.depositar(this.saldoSecundario);
+		this.depositar(this.saldoSecundario, "Consolidar saldo");
 		this.saldoSecundario = 0;
 	}
 }
